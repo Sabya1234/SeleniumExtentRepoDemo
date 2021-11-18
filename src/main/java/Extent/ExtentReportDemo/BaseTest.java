@@ -23,42 +23,36 @@ import java.net.URL;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseTest {
-	
+
 	private static ThreadLocal<WebDriver> driver = new ThreadLocal<WebDriver>();
 
-	
-
-	
-	 /* Intialize webdriver in this Method
+	/*
+	 * Intialize webdriver in this Method
 	 *
 	 */
 	@BeforeMethod
 	@Parameters(value = { "browser" })
 	public void setUpTest(String browser) {
-		
-		switch(browser)
-		{
-		case "chrome" :
+
+		if (browser.equalsIgnoreCase("chrome")) {
 			WebDriverManager.chromedriver().setup();
 			driver.set(new ChromeDriver());
-			break;
-		
-		
-		case "firefox": 
-		  WebDriverManager.firefoxdriver().setup();
-		   driver.set(new FirefoxDriver());
-		   break;
-		   
-		case "edge":
-			
+		}
+
+		else if (browser.equalsIgnoreCase("firefox")) {
+			WebDriverManager.firefoxdriver().setup();
+			driver.set(new FirefoxDriver());
+		}
+
+		else if (browser.equalsIgnoreCase("edge")) {
+
 			WebDriverManager.edgedriver().setup();
 			driver.set(new EdgeDriver());
-			break;
-			
-		default:
-			  System.out.println("Invalid Broswer choice");
 		}
-			   
+
+		else {
+			System.out.println("Invalid Broswer choice");
+		}
 
 	}
 
