@@ -6,19 +6,10 @@
 
 </listeners>
    <test thread-count="3" name="ExtentTestDemoChrome" parallel="methods">
-   <parameter name="browser" value="chrome"/>
     <classes>
       <class name="Extent.ExtentReportDemo.OrangeHRMTest"/>
       <class name="Extent.ExtentReportDemo.FaceBookLogoTest"/>
       <class name="Extent.ExtentReportDemo.GoogleTest"/>
     </classes>
   </test>
-    <!--  <test thread-count="5" name="ExtentTestDemoFireFox" parallel="methods">
-   <parameter name="browser" value="firefox"/>
-    <classes>
-      <class name="Extent.ExtentReportDemo.OrangeHRMTest"/>
-      <class name="Extent.ExtentReportDemo.FaceBookLogoTest"/>
-      <class name="Extent.ExtentReportDemo.GoogleTest"/>
-    </classes>
-  </test>-->
-</suite> <!-- Suite -->
+</suite>

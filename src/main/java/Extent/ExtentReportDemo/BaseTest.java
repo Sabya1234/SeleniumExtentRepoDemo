@@ -31,8 +31,12 @@ public class BaseTest {
 	 *
 	 */
 	@BeforeMethod
-	@Parameters(value = { "browser" })
-	public void setUpTest(String browser) {
+	//@Parameters(value = { "browser" })
+	public void setUpTest() {
+		
+		
+		String browser= System.getProperty("browserName");
+		System.out.println("The user select execution browser is:"+browser);
 
 		if (browser.equalsIgnoreCase("chrome")) {
 			WebDriverManager.chromedriver().setup();
